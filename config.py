@@ -6,21 +6,20 @@ from openapi_client import Configuration
 from openapi_client.api.reports_api import ReportsApi
 from openapi_client.api_client import ApiClient
 
-
 load_dotenv()
 
+TOKEN = os.getenv('TOKEN')
+API_TOKEN = os.getenv('API_TOKEN')
 
-TOKEN: str = os.getenv('TOKEN')
-API_TOKEN: str = os.getenv('API_TOKEN')
+HEADERS = {'Authorization': f'Token {API_TOKEN}'}
 
-ENDPOINT: str = 'http://moneybox.ddns.net/api/v1/report/'
-HEADERS: dict = {'Authorization': f'Token {API_TOKEN}'}
+url = 'http://moneybox.ddns.net'
 
 
-def initialize_reports_api():
+def get_reports_api():
     config = Configuration()
-    config.access_token = f'Token {API_TOKEN}'
-    config.host = ENDPOINT
+    config.access_token = f'token {API_TOKEN}'
+    config.host = url
     api_client = ApiClient(
         configuration=config,
         header_name='Authorization',
