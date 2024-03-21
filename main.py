@@ -13,6 +13,7 @@ bot = telebot.TeleBot(token=TOKEN)
 def get_report(message):
 
     reports_api = get_reports_api()
+    
     reports = reports_api.report_html_retrieve_with_http_info()
 
     bot.send_message(message.chat.id, reports.raw_data)
