@@ -6,7 +6,7 @@ from telebot import types
 from config import TOKEN, get_reports_api
 
 from openapi_client import ReportsApi
-from openapi_client.models import Expense, Invite
+
 
 bot = telebot.TeleBot(token=TOKEN)
 
